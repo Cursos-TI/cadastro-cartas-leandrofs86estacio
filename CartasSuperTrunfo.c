@@ -10,9 +10,10 @@ int main() {
   // Área para entrada de dados
 
   // Área para exibição dos dados da cidade
-    char estado1[10], estado2[10], codigo1[3], codigo2[3], cidade1[10], cidade2[10];
-    int populacao1, populacao2, pontos1, pontos2;
-    float area1, area2, pib1, pib2, densidade1, densidade2, pibpc1, pibpc2;
+    char estado1[10], estado2[10], codigo1[4], codigo2[4], cidade1[10], cidade2[10];
+    int populacao1, populacao2, pontos1, pontos2, resultadopopulacao, resultadoarea, resultadopib, resultadopontos,
+        resultadodensidade, resultadopibpc, resultadosp;
+    float area1, area2, pib1, pib2, densidade1, densidade2, pibpc1, pibpc2, sp1, sp2;
 
     printf ("Olá! Vamos iniciar a inclusão das informações das cartas do jogo Super Trunfo.\n");
     printf ("Vamos começar com as informações da primera carta.\n");
@@ -37,6 +38,7 @@ int main() {
 
     printf ("Digite a quantidade de pontos turísticos: \n");
     scanf ("%d", &pontos1);
+    printf ("\n");
 
     printf ("Obrigado! Agora que finalizamos a inclusão das informações da primeira carta, faremos o mesmo para segunda carta\n");
     printf ("\n");
@@ -67,6 +69,16 @@ int main() {
     pibpc1 = pib1 / populacao1;
     pibpc2 = pib2 / populacao2;
 
+    resultadopopulacao = populacao1 > populacao2;
+    resultadoarea = area1 > area2;
+    resultadopib = pib1> pib2;
+    resultadopontos = pontos1 > pontos2;
+    resultadodensidade = densidade1 < densidade2;
+    resultadopibpc = pibpc1 > pibpc2;
+    sp1 = (1/densidade1) + populacao1 + area1 + pib1 + pontos1 + pibpc1;
+    sp2 = (1/densidade2) + populacao2 + area2 + pib2 + pontos2 + pibpc2;
+    resultadosp = sp1 > sp2;
+
     printf ("Após a inclusão das informações, veja como ficaram as cartas:\n");
     printf ("\n");
     printf ("***CARTA Nº1***\n");
@@ -79,6 +91,7 @@ int main() {
     printf ("PONTOS TURÍSTICOS: %d \n", pontos1);
     printf ("DENSIDADE DEMOGRÁFICA: %.2f hab/Km² \n", densidade1);
     printf ("PIB PER CAPTA: %.2f \n", pibpc1);
+    printf ("\n");
 
     printf ("***CARTA Nº2***\n");
     printf ("CÓDIGO DA CARTA: %s \n", codigo2);
@@ -92,7 +105,19 @@ int main() {
     printf ("PIB PER CAPTA: %.2f \n", pibpc2);
     printf ("\n");
 
-    printf ("Nossa tarefa se encerra aqui. Obrigado por nos ajudar a criar as cartas para o jogo Super Trunfo!");
+    printf ("***COMPARAÇÃO DE CARTAS*** \n");
+    printf ("\n");
+
+    printf ("POPULAÇÃO: Carta %s venceu %d \n",codigo1, resultadopopulacao);
+    printf ("ÁREA: Carta %s venceu %d \n", codigo1, resultadoarea);
+    printf ("PIB: Carta %s venceu %d \n", codigo1, resultadopib);
+    printf ("PONTOS TURÍSTICOS: Carta %s venceu %d \n", codigo1, resultadopontos);
+    printf ("DENSIDADE: Carta %s venceu %d \n", codigo1, resultadodensidade);
+    printf ("PIB PER CAPTA: Carta %s venceu %d \n", codigo1, resultadopibpc);
+    printf ("SUPER PODER: Carta %s venceu %d \n", codigo1, resultadosp);
+    printf ("\n");
+
+    printf ("Nossa tarefa se encerra aqui. Obrigado por nos ajudar com o jogo Super Trunfo!");
 
 return 0;
-} 
+}
