@@ -12,7 +12,7 @@ int main() {
   // Área para exibição dos dados da cidade
     char estado1[10], estado2[10], codigo1[3], codigo2[3], cidade1[10], cidade2[10];
     int populacao1, populacao2, pontos1, pontos2;
-    float area1, area2, pib1, pib2;
+    float area1, area2, pib1, pib2, densidade1, densidade2, pibpc1, pibpc2;
 
     printf ("Olá! Vamos iniciar a inclusão das informações das cartas do jogo Super Trunfo.\n");
     printf ("Vamos começar com as informações da primera carta.\n");
@@ -39,6 +39,7 @@ int main() {
     scanf ("%d", &pontos1);
 
     printf ("Obrigado! Agora que finalizamos a inclusão das informações da primeira carta, faremos o mesmo para segunda carta\n");
+    printf ("\n");
     
     printf ("Digite o nome do Estado: \n");
     scanf ("%s", estado2);
@@ -61,17 +62,25 @@ int main() {
     printf ("Digite a quantidade de pontos turísticos: \n");
     scanf ("%d", &pontos2);
 
+    densidade1 = populacao1 / area1;
+    densidade2 = populacao2 / area2;
+    pibpc1 = pib1 / populacao1;
+    pibpc2 = pib2 / populacao2;
+
     printf ("Após a inclusão das informações, veja como ficaram as cartas:\n");
-    printf ("CARTA Nº1:\n");
+    printf ("\n");
+    printf ("***CARTA Nº1***\n");
     printf ("CÓDIGO DA CARTA: %s \n", codigo1);
     printf ("ESTADO: %s \n", estado1);
     printf ("CIDADE: %s \n", cidade1);
     printf ("POPULAÇÃO: %d Habitantes \n", populacao1);
     printf ("ÁREA: %f Km² \n", area1);
-    printf("PIB: R$ %.2f \n", pib1);
+    printf ("PIB: R$ %.2f \n", pib1);
     printf ("PONTOS TURÍSTICOS: %d \n", pontos1);
+    printf ("DENSIDADE DEMOGRÁFICA: %.2f hab/Km² \n", densidade1);
+    printf ("PIB PER CAPTA: %.2f \n", pibpc1);
 
-    printf ("CARTA Nº2:\n");
+    printf ("***CARTA Nº2***\n");
     printf ("CÓDIGO DA CARTA: %s \n", codigo2);
     printf ("ESTADO: %s \n", estado2);
     printf ("CIDADE: %s \n", cidade2);
@@ -79,8 +88,11 @@ int main() {
     printf ("ÁREA: %f Km²\n", area2);
     printf("PIB: R$ %.2f \n", pib2);
     printf ("PONTOS TURÍSTICOS: %d \n", pontos2);
+    printf ("DENSIDADE DEMOGRÁFICA: %.2f hab/Km² \n", densidade2);
+    printf ("PIB PER CAPTA: %.2f \n", pibpc2);
+    printf ("\n");
 
-    printf ("Nossa tarefa encerra aqui. Obrigado por nos ajudar a criar as cartas para o jogo Super Trunfo!");
+    printf ("Nossa tarefa se encerra aqui. Obrigado por nos ajudar a criar as cartas para o jogo Super Trunfo!");
 
 return 0;
 } 
